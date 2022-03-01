@@ -1,16 +1,12 @@
 import Head from "next/head";
 import { PostCard, Categories, PostWidget } from "../components";
+import { getPosts } from "../services";
 
-const posts = [
-  { title: "react js", excerpt: "helo hleo helo" },
-  { title: "next js", excerpt: "hi hi hi hi" },
-];
-
-export default function Home() {
+export default function Home({ posts }) {
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
-        <title>Trivial Tech</title>
+        <title> Trivial Tech </title>
         <meta
           name="description"
           content="A Blog app created using Next JS, Graph CMS, Tailwind CSS"
@@ -32,4 +28,12 @@ export default function Home() {
       </div>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const posts = (await getPosts()) || [];
+
+  return {
+    props: { posts },
+  };
 }
