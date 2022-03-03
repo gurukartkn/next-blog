@@ -11,22 +11,22 @@ const Comments = ({ slug }) => {
     getComments(slug).then((result) => {
       setComments(result);
     });
-  }, []);
+  }, [slug]);
 
   return (
     <>
       {comments.length > 0 && (
-        <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
-          <h3 className="text-xl mb-8 font-semibold border-b pb-4">
+        <div className="bg-slate-800 shadow-lg rounded-lg p-8 pb-12 mb-8">
+          <h3 className="text-white text-xl mb-8 font-semibold border-b border-slate-700 pb-4">
             {comments.length} Comments
           </h3>
           {comments.map((comment, index) => (
-            <div key={index} className="border-b border-gray-100 mb-4 pb-4">
-              <p className="mb-4">
-                <span className="font-semibold">{comment.name}</span> on{" "}
+            <div key={index} className="border-b border-slate-700 mb-4 pb-4">
+              <p className="mb-4 text-white">
+                <span className="font-semibold ">{comment.name}</span> on{" "}
                 {moment(comment.createdAt).format("MMM DD, YYYY")}
               </p>
-              <p className="whitespace-pre-line text-gray-600 w-full">
+              <p className="whitespace-pre-line text-slate-500 w-full">
                 {parse(comment.comment)}
               </p>
             </div>

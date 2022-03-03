@@ -52,12 +52,14 @@ const CommentsForm = ({ slug }) => {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
-      <h3 className="text-xl mb-8 font-semibold border-b pb-4">Comment</h3>
+    <div className="bg-slate-800 shadow-xl rounded-xl p-8 pb-12 mb-8">
+      <h3 className="text-white text-xl mb-8 font-semibold border-b border-slate-700 pb-4">
+        Comment
+      </h3>
       <div className="grid grid-cols-1 gap-4 mb-4">
         <textarea
           ref={commentEl}
-          className="p-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700"
+          className="p-4 outline-none w-full rounded-lg shadow-lg focus:ring-2 focus:ring-slate-400 bg-slate-600 text-slate-500"
           placeholder="Comment"
           name="comment"
         />
@@ -68,14 +70,14 @@ const CommentsForm = ({ slug }) => {
           ref={nameEl}
           placeholder="Name"
           name="name"
-          className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700"
+          className="py-2 px-4 outline-none w-full rounded-lg shadow-lg focus:ring-2 focus:ring-slate-400 bg-slate-600 text-slate-500"
         />
         <input
           type="text"
           ref={emailEl}
           placeholder="Email"
           name="email"
-          className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700"
+          className="py-2 px-4 outline-none w-full rounded-lg shadow-lg focus:ring-2 focus:ring-slate-400 bg-slate-600 text-slate-500"
         />
       </div>
       <div className="grid grid-cols-1 gap-4 mb-4">
@@ -88,7 +90,7 @@ const CommentsForm = ({ slug }) => {
             value="true"
           />
           <label
-            className="text-gray-500 ml-2 cursor-pointer"
+            className="text-slate-500 ml-2 cursor-pointer"
             htmlFor="storeData"
           >
             Remember me for next time
@@ -96,18 +98,18 @@ const CommentsForm = ({ slug }) => {
         </div>
       </div>
       {error && (
-        <p className="text-xs text-red-500">All fields are required.</p>
+        <p className="text-xs text-rose-600">All fields are required.</p>
       )}
       <div className="mt-8">
         <button
           type="button"
           onClick={handleCommentSubmission}
-          className="transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg rounded-full text-white px-8 py-3 cursor-pointer"
+          className="ease-in-out duration-300 bg-sky-600 hover:bg-sky-700 hover:shadow-xl inline-block  text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer"
         >
           Submit
         </button>
         {showSuccessMessage && (
-          <span className="text-xl float-right font-semibold mt-3 text-green-500">
+          <span className="text-xl float-right font-semibold mt-3 text-emerald-500">
             Comment submitted for review.
           </span>
         )}

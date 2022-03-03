@@ -2,7 +2,7 @@ import React from "react";
 
 const Author = ({ author }) => {
   return (
-    <div className="flex text-center items-center mt-20 mb-8 p-12 relative rounded-lg bg-black bg-opacity-20">
+    <div className="flex text-center items-center mt-20 mb-8 p-12 relative rounded-lg bg-black bg-opacity-10">
       <img
         src={author.photo?.url}
         alt={author.text}

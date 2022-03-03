@@ -59,32 +59,32 @@ const PostDetail = ({ post }) => {
     }
   };
   return (
-    <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
+    <div className="bg-slate-800 shadow-xl rounded-xl  pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md mb-6">
         <img
           src={post.featuredImage.url}
           alt={post.title}
-          className="object-top h-full w-full rounded-t-lg"
+          className="object-top h-full w-full rounded-t-md"
         />
       </div>
-      <div className="px-4 lg:px-0">
+      <div className="mx-6 px-4 lg:px-0">
         <div className="flex items-center mb-8 w-full">
           <div className="flex items-center  mb-4 lg:mb-0 w-full lg:w-auto mr-8 ">
             <img
               src={post.author.photo?.url}
               alt={post.author.name}
-              height="30px"
-              width="30px"
+              height="60px"
+              width="60px"
               className="align-middle rounded-full"
             />
-            <p className="inline align-middle text-gray-700 ml-2 text-lg">
+            <p className="inline align-middle text-slate-500 ml-2 text-lg">
               {post.author.name}
             </p>
           </div>
-          <div className="font-medium text-gray-700">
+          <div className="font-medium text-slate-500">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 inline mr-2 text-pink-500"
+              className="h-6 w-6 inline mr-2 text-sky-600"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -101,13 +101,17 @@ const PostDetail = ({ post }) => {
             </span>
           </div>
         </div>
-        <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
-        {post.content.raw.children.map((typeObj, index) => {
-          const children = typeObj.children.map((item, itemIndex) =>
-            getContentFragment(itemIndex, item.text, item)
-          );
-          return getContentFragment(index, children, typeObj, typeObj.type);
-        })}
+        <h1 className=" mb-8 text-white text-3xl font-semibold">
+          {post.title}
+        </h1>
+        <p className=" text-white font-extralight">
+          {post.content.raw.children.map((typeObj, index) => {
+            const children = typeObj.children.map((item, itemIndex) =>
+              getContentFragment(itemIndex, item.text, item)
+            );
+            return getContentFragment(index, children, typeObj, typeObj.type);
+          })}
+        </p>
       </div>
     </div>
   );

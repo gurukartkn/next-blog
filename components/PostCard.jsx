@@ -4,17 +4,17 @@ import Link from "next/Link";
 
 const PostCard = ({ post }) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
+    <div className="bg-slate-800 ease-in-out duration-300 shadow-xl rounded-xl p-0 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">
         <img
           src={post.featuredImage.url}
           alt={post.title}
-          className="object-top absolute h-80 w-full object-cover shadow-lg rounder-t-lg lg:rounded-lg"
+          className="object-top absolute h-80 w-full object-cover shadow-lg rounded-t-lg "
         />
       </div>
       <h1
-        className="transition duration-700 text-center mb-8 cursor-pointer 
-      hover:text-pink-600 text-3xl font-semibold"
+        className="ease-in-out duration-300 text-center mb-8 cursor-pointer 
+      text-white hover:text-sky-500 text-3xl font-semibold"
       >
         <Link href={`/post/${post.slug}`}>{post.title}</Link>
       </h1>
@@ -23,18 +23,18 @@ const PostCard = ({ post }) => {
           <img
             src={post.author.photo?.url}
             alt={post.author.name}
-            height="30px"
-            width="30px"
+            height="60px"
+            width="60px"
             className="align-middle rounded-full"
           />
-          <p className="inline align-middle text-gray-700 ml-2 text-lg">
+          <p className="inline align-middle text-slate-500 ml-2 text-lg font-semibold">
             {post.author.name}
           </p>
         </div>
-        <div className="font-medium text-gray-700">
+        <div className="font-medium text-slate-500">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 inline mr-2 text-pink-500"
+            className="h-6 w-6 inline mr-2 text-sky-00"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -51,12 +51,12 @@ const PostCard = ({ post }) => {
           </span>
         </div>
       </div>
-      <p className="text-center text-lg text-gray-700 font-normal px-4 lg:px-20 mb-8">
+      <p className="text-center text-lg text-slate-500 font-normal px-4 lg:px-20 mb-8">
         {post.excerpt}
       </p>
       <div className="text-center">
         <Link href={`/post/${post.slug}`}>
-          <span className="transition duration-500 transform hover:-translate-y-1 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer">
+          <span className="ease-in-out duration-300 bg-sky-600 hover:bg-sky-700 hover:shadow-lg inline-block  text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer">
             Continue Reading
           </span>
         </Link>
