@@ -21,7 +21,9 @@ const Categories = () => {
         <Link key={index} href={`/category/${category.slug}`}>
           <span
             className={`text-white cursor-pointer block ${
-              index === categories.length - 1 ? "border-b-0" : "border-b"
+              index === categories.length - 1
+                ? "border-b-0"
+                : "border-b border-slate-700"
             } pb-3 mb-3`}
           >
             {category.name}
