@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { PostCard, Categories } from "../components";
+import { PostCard, Categories, PostWidget } from "../components";
 import { getPosts } from "../services";
 
 export default function Home({ posts }) {
@@ -16,6 +16,9 @@ export default function Home({ posts }) {
 
       <div className="grid grid-cols-1 lg:flex 2xl:ml-16">
         <div className="col-span-1 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:pr-8">
+          <div className="lg:col-span-2">
+            <PostWidget />
+          </div>
           {posts.map((post) => (
             <PostCard post={post.node} key={post.title} />
           ))}
