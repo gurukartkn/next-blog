@@ -15,6 +15,7 @@ import {
 
 const PostDetails = ({ post }) => {
   const router = useRouter();
+  console.log(router.isFallback);
   if (router.isFallback) {
     <Loader />;
   }
@@ -43,18 +44,18 @@ const PostDetails = ({ post }) => {
 
 export default PostDetails;
 
-export async function getStaticProps({ params }) {
-  const data = await getPostDetails(params.slug);
-  return {
-    props: { post: data },
-  };
-}
-
 export async function getStaticPaths() {
   const posts = await getPosts();
 
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
     fallback: "blocking",
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const data = await getPostDetails(params.slug);
+  return {
+    props: { post: data },
   };
 }
