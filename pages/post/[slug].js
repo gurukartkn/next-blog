@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { useRouter } from "next/router";
 
 import { getPosts, getPostDetails } from "../../services";
@@ -15,12 +16,19 @@ import {
 
 const PostDetails = ({ post }) => {
   const router = useRouter();
-  console.log(router.isFallback);
   if (router.isFallback) {
     <Loader />;
   }
   return (
     <div className="container mx-auto px-10 mb-8">
+      <Head>
+        <title> Trivial Tech </title>
+        <meta
+          name="description"
+          content="A Blog app created using Next JS, Graph CMS, Tailwind CSS"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
           <PostDetail post={post} />
@@ -57,6 +65,5 @@ export async function getStaticProps({ params }) {
   const data = await getPostDetails(params.slug);
   return {
     props: { post: data },
-    revalidate: 1,
   };
 }
